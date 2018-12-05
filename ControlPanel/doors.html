@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+
+<style>
+    .main_block{
+        boarder-radius: 25px;
+        width: 350px;
+        height:570px;
+        padding: 10px;
+        border: 5px solid grey;
+        box-shadow: 0 15px 30px -10px black;
+        background-color: #ffffff;
+        font-family:"Century Gothic" ;
+        font-weight: lighter;
+
+    }
+
+    #icon:hover, #icon1:hover, #icon2:hover, #icon3:hover, #icon4:hover{
+        cursor: pointer;
+        opacity: 0.4;
+        transition: opacity 0.55s ease-in-out;
+
+    }
+
+    img:hover{
+        cursor: pointer;
+    }
+
+
+
+
+    #panel, #flip {
+        padding: 5px;
+        text-align: center;
+        background-color: #ffffff;
+        border: solid 1px #c3c3c3;
+    }
+
+    #panel {
+        padding: 5px;
+        display: none;
+    }
+
+    .panel:hover{
+        cursor: pointer;
+    }
+
+
+
+
+    /*!*!*grey out images when you hover over them *!*!*/
+    /*.table image:hover{*/
+        /*opacity: 0.4;*/
+        /*transition: opacity 0.55s ease-in-out;*/
+    /*}*/
+
+</style>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+<script>
+    $(document).ready(function(){
+        $("#flip").click(function(){
+            $("#panel").slideToggle("slow");
+        });
+    });
+
+
+//    $(document).ready(function(){
+//        $("#flip2").click(function(){
+//            $("#panel2").slideToggle("slow");
+//        });
+//    });
+
+    function myFunction() {
+        var x = document.getElementById("myTopnav");
+        if (x.className === "topnav") {
+            x.className += " responsive";
+        } else {
+            x.className = "topnav";
+        }
+    }
+
+
+    var image_tracker = 'lock';
+
+    function change(on){
+        var snd = new Audio("sound/tick.mp3");
+
+        var image = document.getElementById('doorLock');
+        //if the changeBoth overwrites
+
+        if (on ==1){
+            image.src='img/lock.png';
+            image_tracker='unlock';
+            $("figcaption1").text("Front Door Unlocked")
+        }
+        if (on ==0){
+            image.src='img/close.png';
+            image_tracker='lock';
+            $("figcaption1").text("Front Door Locked")
+
+        }
+        if(image_tracker=='lock'){
+            snd.play();
+
+            image.src='img/lock.png';
+            image_tracker='unlock';
+            $("figcaption1").text("Front Door Unlocked")
+
+
+
+        }
+        else{
+            snd.play();
+
+            image.src='img/close.png';
+            image_tracker='lock';
+            $("figcaption1").text("Front Door Locked")
+
+
+        }
+    }
+
+
+    var image_tracker2 = 'lock2';
+
+    function change2(on){
+        var snd = new Audio("sound/tick.mp3");
+
+        var image = document.getElementById('doorLock2');
+        //if the changeBoth overwrites
+        if (on ==1){
+            image.src='img/lock.png';
+            image_tracker2='unlock2';
+            $("figcaption2").text("Back Door Unlocked")
+
+
+        }
+        if (on == 0){
+            image.src='img/close.png';
+            image_tracker2='lock2';
+            $("figcaption2").text("Back Door Locked")
+
+        }
+
+        if(image_tracker2=='lock2'){
+            snd.play();
+
+            image.src='img/lock.png';
+            image_tracker2='unlock2';
+            $("figcaption2").text("Back Door Unlocked")
+
+        }
+        else{
+            snd.play();
+
+            image.src='img/close.png';
+            image_tracker2='lock2';
+            $("figcaption2").text("Back Door Locked")
+
+        }
+    }
+
+    var image_tracker3 = 'lock3';
+
+    function changeBoth(){
+        var snd = new Audio("sound/button.mp3");
+        snd.play();
+
+        var image = document.getElementById('doorLock3');
+        if(image_tracker3=='lock3'){
+
+
+            image.src='img/lock.png';
+
+
+            change(0);
+            change2(0);
+            image_tracker3='unlock3';
+            $("figcaption3").text("Unlock Both Doors")
+
+        }
+        else{
+            image.src='img/close.png';
+
+
+            change(1);
+            change2(1);
+            image_tracker3='lock3';
+            $("figcaption3").text("Lock Both Doors")
+
+        }
+    }
+
+
+
+</script>
+
+
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Interface</title>
+</head>
+<body>
+
+
+
+<div class=" main_block" style=" margin: 100px auto">
+
+
+
+    <div class="navBar" id= "table"style="text-align: center" >
+
+        <a href="main.html"><img src="img/home.png" id="icon" style="width: 50px; height:50px;display: inline-block"></a>
+
+        <a href="lights.html"><img src="img/light.png" id="icon1" style="width: 50px; height:50px;display: inline-block"></a>
+
+        <a href="heating.html"><img src="img/heat.png" id="icon3" style="width: 50px; height:50px;display: inline-block"></a>
+
+
+        <a href="doors.html"><img src="img/door.png" id="icon2" style="width: 50px; height:50px;display: inline-block"></a>
+
+        <a href="window.html"><img src="img/window1.png" id="icon4" style="width: 50px; height:50px;display: inline-block"></a>
+
+
+    </div>
+
+
+
+    <!--<ul class="topnav" id="myTopnav">-->
+        <!--<li><a href="main.html">Home</a></li>-->
+        <!--<li><a href="doors.html">Locks</a></li>-->
+        <!--<li><a href="window.html">Shades</a></li>-->
+        <!--<li><a href="lights.html">Lights</a></li>-->
+        <!--<li><a href="heating.html">Heat</a></li>-->
+
+
+        <!--<li class="icon">-->
+            <!--<a href="javascript:void(0);" style="font-size:15px;" onclick="myFunction()">☰</a>-->
+        <!--</li>-->
+
+    <!--</ul>-->
+
+
+
+    <div style="text-align: center">
+
+        <br>
+
+            <h2> <u> LOCK DOORS </u> </h2>
+
+        <div style="text-align: center" >
+
+
+
+        <figure>
+        <img src="img/close.png" id="doorLock" onclick="change();"
+        style="width: 90px; height:90px">
+            <br>
+
+        <figcaption1> Front Door Locked </figcaption1>
+
+
+        </figure>
+        </div>
+
+        <div>
+
+        <figure>
+        <img src="img/close.png" id="doorLock2" onclick="change2();"
+        style="width: 90px; height:90px">
+            <br>
+
+        <figcaption2> Back Door Locked </figcaption2>
+        </figure>
+
+
+        </div>
+
+
+
+
+
+            <div>
+            <figure >
+            <img src="img/close.png" id="doorLock3" onclick="changeBoth();"
+            style="width: 90px; height:90px">
+                <br>
+            <figcaption3> Unlock Both Doors</figcaption3>
+            </figure>
+
+            </div>
+
+                </div>
+        </div>
+
+
+
+
+
+
+</body>
+</html>
+

@@ -1,0 +1,674 @@
+<!DOCTYPE html>
+
+<style>
+    .main_block{
+        boarder-radius: 25px;
+        width: 350px;
+        height:570px;
+        padding: 10px;
+        border: 5px solid grey;
+        box-shadow: 0 15px 30px -10px black;
+        background-color: #ffffff;
+        font-family:"Century Gothic" ;
+        font-weight: lighter;
+
+    }
+
+    #icon:hover, #icon1:hover, #icon2:hover, #icon3:hover, #icon4:hover{
+        cursor: pointer;
+        opacity: 0.4;
+        transition: opacity 0.55s ease-in-out;
+
+    }
+
+    img:hover{
+        cursor: pointer;
+    }
+
+
+
+    #panel, #panel2, #panel3, #panel4, #flip, #flip2, #flip3, #flip4{
+        padding: 5px;
+        text-align: center;
+        background-color: #ffffff;
+        border: solid 1px #c3c3c3;
+    }
+
+    #panel, #panel2, #panel3, #panel4{
+        padding: 5px;
+        display: none;
+        height: 190px;
+
+    }
+
+    #flip:hover, #flip2:hover, #flip3:hover, #flip4:hover{
+        cursor: pointer;
+        opacity: 0.45;
+        transition: opacity 0.55s ease-in-out;
+        /*box-shadow: 0 1px 30px -10px black;*/
+    }
+
+
+
+    .thePosition {
+        display: inline-block;
+        /*background-color: red;*/
+        /*margin-top: 40px;*/
+        /*margin-bottom: 10px;*/
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+
+    #icon:hover, #icon1:hover, #icon2:hover, #icon3:hover, #icon4:hover{
+        cursor: pointer;
+        opacity: 0.4;
+        transition: opacity 0.55s ease-in-out;
+
+    }
+
+
+</style>
+`
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+
+<script>
+    function myFunction() {
+        var x = document.getElementById("myTopnav");
+        if (x.className === "topnav") {
+            x.className += " responsive";
+        } else {
+            x.className = "topnav";
+        }
+    }
+
+
+
+    function myFunction() {
+        var x = document.getElementById("myTopnav");
+        if (x.className === "topnav") {
+            x.className += " responsive";
+        } else {
+            x.className = "topnav";
+        }
+    }
+
+
+
+
+    $(document).ready(function(){
+        $("#flip").click(function(){
+            $("#panel2").hide();
+            $("#panel3").hide();
+            $("#panel4").hide();
+            $("#panel").slideToggle("slow");
+
+
+
+        });
+    });
+
+
+    //    $(document).ready(function(){
+    //            $("#flip").click(function(){
+    //                $("#panel").slideToggle("slow");
+    //            });
+    //    });
+
+
+    $(document).ready(function(){
+        $("#flip2").click(function(){
+            $("#panel").hide();
+            $("#panel3").hide();
+            $("#panel4").hide();
+            $("#panel2").slideToggle("slow");
+        });
+    });
+
+
+
+    $(document).ready(function(){
+        $("#flip3").click(function(){
+            $("#panel").hide();
+            $("#panel2").hide();
+            $("#panel4").hide();
+            $("#panel3").slideToggle("slow");
+        });
+    });
+
+
+    $(document).ready(function(){
+        $("#flip4").click(function(){
+            $("#panel").hide();
+            $("#panel2").hide();
+            $("#panel3").hide();
+            $("#panel4").slideToggle("slow");
+        });
+    });
+
+
+
+
+
+
+    var image_tracker = 'open';
+
+    function changeKitchen(on){
+        var snd = new Audio("sound/pat.mp3");
+        snd.play();
+
+        var image = document.getElementById('doorLock');
+        //if the changeBoth overwrites
+
+        if (on ==1){
+            image.src='img/offLight.png';
+            image_tracker='open';
+            $("figcaption1").text("Off")
+        }
+        if (on ==2){
+            image.src='img/halfLight.png';
+            image_tracker='half';
+            $("figcaption1").text("1")
+
+        }
+        if (on ==3){
+            image.src='img/fullLight.png';
+            image_tracker='close';
+            $("figcaption1").text("2")
+        }
+
+        if(image_tracker=='open'){
+            snd.play();
+
+            image.src='img/offLight.png';
+            image_tracker='half';
+            $("figcaption1").text("Off")
+
+
+
+        }else if(image_tracker=='half'){
+            snd.play();
+
+            image.src='img/halfLight.png';
+            image_tracker='close';
+            $("figcaption1").text("1")
+
+
+
+        }
+        else{
+            snd.play();
+
+            image.src='img/fullLight.png';
+            image_tracker='open';
+            $("figcaption1").text("2")
+
+
+        }
+    }
+
+
+    var image_tracker6 = 'open6';
+
+    function kitchenTwo(on){
+        var snd = new Audio("sound/pat.mp3");
+        snd.play();
+
+        var image = document.getElementById('doorLock6');
+        //if the changeBoth overwrites
+        if (on ==1){
+            image.src='img/offLight.png';
+            image_tracker6='open6';
+            $("figcaption6").text(" Off")
+        }
+        if (on ==2){
+            image.src='img/halfLight.png';
+            image_tracker6='half6';
+            $("figcaption6").text(" 1")
+
+        }
+        if (on ==3){
+            image.src='img/fullLight.png';
+            image_tracker6='close6';
+            $("figcaption6").text(" 2")
+        }
+
+
+        if(image_tracker6=='open6'){
+            snd.play();
+
+            image.src='img/offLight.png';
+            image_tracker6='half6';
+            $("figcaption6").text("Off")
+
+
+
+        }else if(image_tracker6=='half6'){
+            snd.play();
+
+            image.src='img/halfLight.png';
+            image_tracker6='close6';
+            $("figcaption6").text(" 1")
+
+
+
+        }
+        else{
+            snd.play();
+
+            image.src='img/fullLight.png';
+            image_tracker6='open6';
+            $("figcaption6").text("2")
+
+
+        }
+    }
+
+
+    //for living room window 1
+    var image_tracker4 = 'open4';
+
+    function changeLivingOne(on){
+        var snd = new Audio("sound/pat.mp3");
+        snd.play();
+
+        var image = document.getElementById('doorLock4');
+        //if the changeBoth overwrites
+        if (on ==1){
+            image.src='img/offLight.png';
+            image_tracker4='open4';
+            $("figcaption4").text("Off")
+        }
+        if (on ==2){
+            image.src='img/halfLight.png';
+            image_tracker4='half4';
+            $("figcaption4").text("1")
+
+        }
+        if (on ==3){
+            image.src='img/fullLight.png';
+            image_tracker4='close4';
+            $("figcaption4").text("2")
+        }
+
+        if(image_tracker4=='open4'){
+            snd.play();
+
+            image.src='img/offLight.png';
+            image_tracker4='half4';
+            $("figcaption4").text("Off")
+
+
+
+        }else if(image_tracker4=='half4'){
+            snd.play();
+
+            image.src='img/halfLight.png';
+            image_tracker4='close4';
+            $("figcaption4").text("1")
+
+
+
+        }
+        else{
+            snd.play();
+
+            image.src='img/fullLight.png';
+            image_tracker4='open4';
+            $("figcaption4").text("2")
+
+
+        }
+    }
+
+
+
+
+    var image_tracker5 = 'open5';
+
+    function changeLivingTwo(on){
+        var snd = new Audio("sound/pat.mp3");
+        snd.play();
+
+        var image = document.getElementById('doorLock5');
+        //if the changeBoth overwrites
+        if (on ==1){
+            image.src='img/offLight.png';
+            image_tracker5='open5';
+            $("figcaption5").text("Off")
+        }
+        if (on ==2){
+            image.src='img/halfLight.png';
+            image_tracker5='half5';
+            $("figcaption5").text("1")
+
+        }
+        if (on ==3){
+            image.src='img/fullLight.png';
+            image_tracker5='close5';
+            $("figcaption5").text("2")
+        }
+
+
+        if(image_tracker5=='open5'){
+            snd.play();
+
+            image.src='img/offLight.png';
+            image_tracker5='half5';
+            $("figcaption5").text("Off")
+
+
+
+        }else if(image_tracker5=='half5'){
+            snd.play();
+
+            image.src='img/halfLight.png';
+            image_tracker5='close5';
+            $("figcaption5").text("1")
+
+
+
+        }
+        else{
+            snd.play();
+
+            image.src='img/fullLight.png';
+            image_tracker5='open5';
+            $("figcaption5").text("2")
+
+
+        }
+    }
+
+
+
+    var image_tracker2 = 'open2';
+
+    function changeBR(on){
+        var snd = new Audio("sound/pat.mp3");
+        snd.play();
+
+        var image = document.getElementById('doorLock2');
+        //if the changeBoth overwrites
+        if (on ==1){
+            image.src='img/offLight.png';
+            image_tracker2='open2';
+            $("figcaption2").text("Off")
+        }
+        if (on ==2){
+            image.src='img/halfLight.png';
+            image_tracker2='half2';
+            $("figcaption2").text("1")
+
+        }
+        if (on ==3){
+            image.src='img/fullLight.png';
+            image_tracker2='close2';
+            $("figcaption2").text("2")
+        }
+
+
+        if(image_tracker2=='open2'){
+            snd.play();
+
+            image.src='img/offLight.png';
+            image_tracker2='half2';
+            $("figcaption2").text("Off")
+
+
+
+        }else if(image_tracker2=='half2'){
+            snd.play();
+
+            image.src='img/halfLight.png';
+            image_tracker2='close2';
+            $("figcaption2").text("1")
+
+
+
+        }
+        else{
+            snd.play();
+
+            image.src='img/fullLight.png';
+            image_tracker2='open2';
+            $("figcaption2").text("2")
+
+
+        }
+    }
+
+    var image_tracker7 = 'open7';
+
+    function bedRoomTwo(on){
+        var snd = new Audio("sound/pat.mp3");
+        snd.play();
+
+        var image = document.getElementById('doorLock7');
+        //if the changeBoth overwrites
+        if (on ==1){
+            image.src='img/offLight.png';
+            image_tracker7='open7';
+            $("figcaption7").text("Off")
+        }
+        if (on ==2){
+            image.src='img/halfLight.png';
+            image_tracker7='half7';
+            $("figcaption7").text("1")
+
+        }
+        if (on ==3){
+            image.src='img/fullLight.png';
+            image_tracker7='close7';
+            $("figcaption7").text("2")
+        }
+
+
+        if(image_tracker7 =='open7'){
+            snd.play();
+
+            image.src='img/offLight.png';
+            image_tracker7='half7';
+            $("figcaption7").text("Off")
+
+
+
+        }else if(image_tracker7=='half7'){
+            snd.play();
+
+            image.src='img/halfLight.png';
+            image_tracker7='close7';
+            $("figcaption7").text("1")
+
+
+
+        }
+        else{
+            snd.play();
+
+            image.src='img/fullLight.png';
+            image_tracker7='open7';
+            $("figcaption7").text("2")
+
+
+        }
+    }
+
+    var image_tracker3 = 'open3';
+
+    function changeAll(){
+
+
+
+        var image = document.getElementById('doorLock3');
+        if(image_tracker3=='open3'){
+            image.src='img/offLight.png';
+
+            changeKitchen(1);
+            kitchenTwo(1);
+            changeBR(1);
+            bedRoomTwo(1);
+            changeLivingOne(1);
+            changeLivingTwo(1);
+            image_tracker3='half3';
+            $("figcaption3").text("1")
+
+        }else if(image_tracker3=='half3'){
+            image.src='img/halfLight.png';
+
+
+            changeKitchen(2);
+            kitchenTwo(2);
+            changeBR(2);
+            bedRoomTwo(2);
+            changeLivingOne(2);
+            changeLivingTwo(2);
+            image_tracker3='close3';
+            $("figcaption3").text(" 2 ")
+
+        } else{
+            image.src='img/fullLight.png';
+
+
+            changeKitchen(3);
+            kitchenTwo(2);
+            changeBR(3);
+            bedRoomTwo(3);
+            changeLivingOne(3);
+            changeLivingTwo(3);
+            image_tracker3='open3';
+            $("figcaption3").text("Off")
+
+        }
+    }
+
+
+</script>
+
+
+
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Interface</title>
+</head>
+<body>
+
+
+
+<div class=" main_block" style="margin: 100px auto">
+
+
+    <div class="navBar" id= "table"style="text-align: center" >
+
+        <a href="main.html"><img src="img/home.png" id="icon" style="width: 50px; height:50px;display: inline-block"></a>
+
+        <a href="lights.html"><img src="img/light.png" id="icon1" style="width: 50px; height:50px;display: inline-block"></a>
+
+        <a href="heating.html"><img src="img/heat.png" id="icon3" style="width: 50px; height:50px;display: inline-block"></a>
+
+
+        <a href="doors.html"><img src="img/door.png" id="icon2" style="width: 50px; height:50px;display: inline-block"></a>
+
+        <a href="window.html"><img src="img/window1.png" id="icon4" style="width: 50px; height:50px;display: inline-block"></a>
+
+
+    </div>
+
+
+
+    <div style="text-align: center">
+        <br>
+
+        <h2> <u> LIGHTING </u> </h2>
+        <br>
+
+        <div id="flip">Kitchen </div>
+        <div id="panel">
+            <br><br>
+            <div class="thePosition">
+                <img src="img/offLight.png" id="doorLock" onclick="changeKitchen();" style="width: 90px; height:100px">
+                <br>
+                <figcaption1> <b> Off   | </b> 1 2 </figcaption1>
+                </div>
+
+            <div class="thePosition">
+                <img src="img/offLight.png" id="doorLock6" onclick="kitchenTwo();" style="width: 90px; height:100px">
+                <br>
+                <figcaption6> <b> Off   | </b> 1 2 </figcaption6>
+
+            </div>
+
+        </div>
+
+        <br>
+
+
+
+        <div id="flip2">Living Room</div>
+        <div id="panel2">
+            <br><br>
+
+            <div class="thePosition">
+                <img src="img/offLight.png" id="doorLock4" onclick="changeLivingOne();" style="width: 90px; height:100px">
+
+                <br>
+                <figcaption4> <b> Off   | </b> 1 2 </figcaption4>
+            </div>
+
+
+            <div class="thePosition" >
+                <img src="img/offLight.png" id="doorLock5" onclick="changeLivingTwo();" style="width: 90px; height:100px">
+
+                <br>
+                <figcaption5> <b> Off   | </b> 1 2 </figcaption5>
+            </div>
+
+
+        </div>
+
+        <br>
+
+
+        <div id="flip3">Bedroom</div>
+        <div id="panel3">
+            <br><br>
+
+            <div class="thePosition">
+                <img src="img/offLight.png" id="doorLock2" onclick="changeBR();"
+                     style="width: 90px; height:100px">
+                <br>
+                <figcaption2> <b> Off   | </b> 1 2  </figcaption2>
+            </div>
+
+
+            <div class="thePosition">
+                <img src="img/offLight.png" id="doorLock7" onclick="bedRoomTwo();"
+                     style="width: 90px; height:100px">
+                <br>
+                <figcaption7> <b> Off   | </b> 1 2  </figcaption7>
+            </div>
+        </div>
+
+
+        <br>
+
+        <div id="flip4">All Lights</div>
+        <div id="panel4">
+            <br><br>
+
+            <div class="thePosition" >
+                <img src="img/offLight.png" id="doorLock3" onclick="changeAll();" style="width: 90px; height:100px">
+                <br>
+                <figcaption10> TURN ALL TO</figcaption10>
+                <br>
+                <figcaption3> 1</figcaption3>
+            </div>
+
+        </div>
+
+    </div>
+</div>
+</body>
+</html>

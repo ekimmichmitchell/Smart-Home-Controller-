@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+
+<style>
+    .main_block{
+        boarder-radius: 25px;
+        width: 350px;
+        height:570px;
+        padding: 10px;
+        border: 5px solid grey;
+        box-shadow: 0 15px 30px -10px black;
+        background-color: #ffffff;
+        font-family:"Century Gothic" ;
+        font-weight: lighter;
+
+
+    }
+
+
+    #icon:hover, #icon1:hover, #icon2:hover, #icon3:hover, #icon4:hover{
+        cursor: pointer;
+        opacity: 0.4;
+        transition: opacity 0.55s ease-in-out;
+
+    }
+
+
+    img:hover{
+        cursor: pointer;
+    }
+
+
+
+    #number{
+        width:80px;
+        height: 80px;
+        text-align:center;
+        background-color: #fcfcfc;
+        font-family:"Bell MT" ;
+        font-weight: bold;
+        /*box-shadow: 0 10px 20px -5px black;*/
+        text-shadow: #111111;
+        color: #262626;
+        font-size:30px;
+        border:3px solid #383838;
+        padding-top: 0px;
+        box-shadow: 0 7px 10px -100px black;
+
+    }
+
+
+
+    .actualTempPos {
+        display: inline-block;
+        /*background-color: red;*/
+        margin: 20px;
+
+    }
+
+
+    .actualTemps{
+        width:50px;
+        height: 50px;
+        text-align:center;
+        font-family:"Bell MT" ;
+        font-weight: bold;
+        background-color: #ffffff;
+        color: #262626;
+        font-size:25px;
+        border:3px solid #383838;
+        padding-top: 0px;
+
+
+
+    }
+
+    .thePosition {
+        display: inline-block;
+
+    }
+</style>
+
+
+<script>
+    function myFunction() {
+        var x = document.getElementById("myTopnav");
+        if (x.className === "topnav") {
+            x.className += " responsive";
+        } else {
+            x.className = "topnav";
+        }
+    }
+
+
+
+
+    function incrementValue(){
+
+        var value = parseInt(document.getElementById('number').value, 10);
+        value = isNaN(value) ? 0 : value;
+        value++;
+        document.getElementById('number').value = value;
+
+        setTimeout(incrementTempRight,3000);
+        setTimeout(incrementTempLeft,2000);
+
+    }
+
+    function decValue() {
+
+
+        var value = parseInt(document.getElementById('number').value, 10);
+        value = isNaN(value) ? 0 : value;
+        value--;
+        document.getElementById('number').value = value;
+
+
+        setTimeout(decrementTempLeft,1000);
+        setTimeout(decrementTempRight,2000);
+
+    }
+
+
+    function incrementTempRight() {
+
+        var value = parseInt(document.getElementById('rightTemp').value, 10);
+        value = isNaN(value) ? 0 : value;
+        value++;
+        document.getElementById('rightTemp').value = value;
+    }
+    function incrementTempLeft() {
+
+        var value = parseInt(document.getElementById('leftTemp').value, 10);
+        value = isNaN(value) ? 0 : value;
+        value++;
+        document.getElementById('leftTemp').value = value;
+    }
+
+    function decrementTempRight() {
+
+            var value = parseInt(document.getElementById('rightTemp').value, 10);
+            value = isNaN(value) ? 0 : value;
+            value--;
+            document.getElementById('rightTemp').value = value;
+    }
+
+    function decrementTempLeft(){
+            var value = parseInt(document.getElementById('leftTemp').value, 10);
+            value = isNaN(value) ? 0 : value;
+            value--;
+            document.getElementById('leftTemp').value = value;
+
+    }
+
+
+
+</script>
+
+
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Interface</title>
+</head>
+<body>
+
+
+
+<div class=" main_block" style=" margin: 100px auto">
+
+
+    <div class="navBar" id= "table"style="text-align: center" >
+
+        <a href="main.html"><img src="img/home.png" id="icon" style="width: 50px; height:50px;display: inline-block"></a>
+
+        <a href="lights.html"><img src="img/light.png" id="icon1" style="width: 50px; height:50px;display: inline-block"></a>
+
+        <a href="heating.html"><img src="img/heat.png" id="icon3" style="width: 50px; height:50px;display: inline-block"></a>
+
+
+        <a href="doors.html"><img src="img/door.png" id="icon2" style="width: 50px; height:50px;display: inline-block"></a>
+
+        <a href="window.html"><img src="img/window1.png" id="icon4" style="width: 50px; height:50px;display: inline-block"></a>
+
+
+    </div>
+
+
+
+
+    <div style="text-align: center">
+        <br>
+
+
+        <h2> <u> TEMPERATURE</u> </h2>
+
+
+        <div class="actualTempPos">
+            <input id="leftTemp" type="text" class="actualTemps" value="70" readonly="readonly"/>
+            <br><br>
+            <caption> <b> East Temp </b></caption>
+        </div>
+
+
+        <div class="actualTempPos">
+            <input id="rightTemp" type="text" class="actualTemps" value="70" readonly="readonly"/>
+            <br><br>
+            <caption> <b>South Temp </b></caption>
+        </div>
+
+
+        <br><br><br>
+
+
+
+        <div class="thePosition">
+            <img src="img/down1.png" onclick="decValue();" style="width: 90px; height:120px">
+            <br><br>
+
+        </div>
+
+
+        <div class="thePosition" >
+            <input type="text" id="number" value="70" readonly="readonly" max="100" min="30"/>
+            <br><br>
+            <caption> <b> Set Temperature </b></caption>
+
+        </div>
+
+
+        <div class="thePosition">
+            <img src="img/up1.png" onclick="incrementValue();" style="width: 90px; height:120px">
+            <br><br>
+        </div>
+
+        <br>
+
+    </div>
+</div>
+
+
+</body>
+</html>
+

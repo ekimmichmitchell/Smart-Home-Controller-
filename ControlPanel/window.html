@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+
+<style>
+    .main_block{
+        boarder-radius: 25px;
+        width: 350px;
+        height:570px;
+        padding: 10px;
+        border: 5px solid grey;
+        box-shadow: 0 15px 30px -10px black;
+        background-color: #ffffff;
+        font-family:"Century Gothic" ;
+        font-weight: lighter;
+
+    }
+
+    #icon:hover, #icon1:hover, #icon2:hover, #icon3:hover, #icon4:hover{
+        cursor: pointer;
+        opacity: 0.4;
+        transition: opacity 0.55s ease-in-out;
+
+    }
+
+    img:hover{
+        cursor: pointer;
+    }
+
+
+
+
+    #panel, #panel2, #panel3, #panel4, #flip, #flip2, #flip3, #flip4{
+        padding: 5px;
+        text-align: center;
+        background-color: #ffffff;
+        border: solid 1px #c3c3c3;
+    }
+
+    #panel, #panel2, #panel3, #panel4{
+        padding: 5px;
+        display: none;
+        height: 190px;
+
+    }
+
+    #flip:hover, #flip2:hover, #flip3:hover, #flip4:hover{
+        cursor: pointer;
+        opacity: 0.45;
+        transition: opacity 0.55s ease-in-out;
+        /*box-shadow: 0 1px 30px -10px black;*/
+    }
+
+    .livingroom_position {
+        display: inline-block;
+        /*background-color: red;*/
+        margin-top: 20px;
+        margin-bottom: 10px;
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+
+
+</style>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+<script>
+    function myFunction() {
+        var x = document.getElementById("myTopnav");
+        if (x.className === "topnav") {
+            x.className += " responsive";
+        } else {
+            x.className = "topnav";
+        }
+    }
+
+
+
+
+    $(document).ready(function(){
+        $("#flip").click(function(){
+            $("#panel2").hide();
+            $("#panel3").hide();
+            $("#panel4").hide();
+            $("#panel").slideToggle("slow");
+
+
+
+        });
+    });
+
+
+//    $(document).ready(function(){
+//            $("#flip").click(function(){
+//                $("#panel").slideToggle("slow");
+//            });
+//    });
+
+
+    $(document).ready(function(){
+        $("#flip2").click(function(){
+            $("#panel").hide();
+            $("#panel3").hide();
+            $("#panel4").hide();
+            $("#panel2").slideToggle("slow");
+        });
+    });
+
+
+
+    $(document).ready(function(){
+        $("#flip3").click(function(){
+            $("#panel").hide();
+            $("#panel2").hide();
+            $("#panel4").hide();
+            $("#panel3").slideToggle("slow");
+        });
+    });
+
+
+    $(document).ready(function(){
+        $("#flip4").click(function(){
+            $("#panel").hide();
+            $("#panel2").hide();
+            $("#panel3").hide();
+            $("#panel4").slideToggle("slow");
+        });
+    });
+
+
+
+
+
+
+    var image_tracker = 'open';
+
+    function changeKitchen(on){
+        var snd = new Audio("sound/staple.mp3");
+        snd.play();
+        var image = document.getElementById('doorLock');
+        //if the changeBoth overwrites
+
+        if (on ==1){
+            image.src='img/winOpen1.png';
+            image_tracker='open';
+            $("figcaption1").text("Open")
+        }
+        if (on ==2){
+            image.src='img/WindowHalf.png';
+            image_tracker='half';
+            $("figcaption1").text("Half")
+
+        }
+        if (on ==3){
+            image.src='img/winClose.png';
+            image_tracker='close';
+            $("figcaption1").text("Close")
+        }
+
+        if(image_tracker=='open'){
+            snd.play();
+
+            image.src='img/winOpen1.png';
+            image_tracker='half';
+            $("figcaption1").text("Open")
+
+
+
+        }else if(image_tracker=='half'){
+            snd.play();
+
+            image.src='img/WindowHalf.png';
+            image_tracker='close';
+            $("figcaption1").text("Half")
+
+
+
+        }
+        else{
+            snd.play();
+
+            image.src='img/winClose.png';
+            image_tracker='open';
+            $("figcaption1").text("Close")
+
+
+        }
+    }
+
+
+    var image_tracker2 = 'open2';
+
+    function changeBR(on){
+        var snd = new Audio("sound/tick.mp3");
+
+        var image = document.getElementById('doorLock2');
+        //if the changeBoth overwrites
+        if (on ==1){
+            image.src='img/winOpen1.png';
+            image_tracker2='open2';
+            $("figcaption2").text("Open")
+        }
+        if (on ==2){
+            image.src='img/WindowHalf.png';
+            image_tracker2='half2';
+            $("figcaption2").text("Half")
+
+        }
+        if (on ==3){
+            image.src='img/winClose.png';
+            image_tracker2='close2';
+            $("figcaption2").text("Close")
+        }
+
+
+        if(image_tracker2=='open2'){
+            snd.play();
+
+            image.src='img/winOpen1.png';
+            image_tracker2='half2';
+            $("figcaption2").text("Open")
+
+
+
+        }else if(image_tracker2=='half2'){
+            snd.play();
+
+            image.src='img/WindowHalf.png';
+            image_tracker2='close2';
+            $("figcaption2").text("Half")
+
+
+
+        }
+        else{
+            snd.play();
+
+            image.src='img/winClose.png';
+            image_tracker2='open2';
+            $("figcaption2").text("Close")
+
+
+        }
+    }
+
+
+    var image_tracker3 = 'open3';
+
+    function changeAll(){
+        var snd = new Audio("sound/button.mp3");
+        snd.play();
+
+        var image = document.getElementById('doorLock3');
+        if(image_tracker3=='open3'){
+            image.src='img/winOpen1.png';
+
+            changeKitchen(1);
+            changeBR(1);
+            changeLivingOne(1);
+            changeLivingTwo(1);
+            image_tracker3='half3';
+            $("figcaption3").text("Half Open")
+
+        }else if(image_tracker3=='half3'){
+            image.src='img/WindowHalf.png';
+
+
+            changeKitchen(2);
+            changeBR(2);
+            changeLivingOne(2);
+            changeLivingTwo(2);
+            image_tracker3='close3';
+            $("figcaption3").text("Closed ")
+
+        } else{
+            image.src='img/winClose.png';
+
+
+            changeKitchen(3);
+            changeBR(3);
+            changeLivingOne(3);
+            changeLivingTwo(3);
+            image_tracker3='open3';
+            $("figcaption3").text("Opened")
+
+        }
+    }
+
+
+
+
+//for living room window 1
+    var image_tracker4 = 'open4';
+
+    function changeLivingOne(on){
+        var snd = new Audio("sound/tick.mp3");
+
+        var image = document.getElementById('doorLock4');
+        //if the changeBoth overwrites
+        if (on ==1){
+            image.src='img/winOpen1.png';
+            image_tracker4='open4';
+            $("figcaption4").text("Open")
+        }
+        if (on ==2){
+            image.src='img/WindowHalf.png';
+            image_tracker4='half4';
+            $("figcaption4").text("Half")
+
+        }
+        if (on ==3){
+            image.src='img/winClose.png';
+            image_tracker4='close4';
+            $("figcaption4").text("Close")
+        }
+
+        if(image_tracker4=='open4'){
+            snd.play();
+
+            image.src='img/winOpen1.png';
+            image_tracker4='half4';
+            $("figcaption4").text("Open")
+
+
+
+        }else if(image_tracker4=='half4'){
+            snd.play();
+
+            image.src='img/WindowHalf.png';
+            image_tracker4='close4';
+            $("figcaption4").text("Half")
+
+
+
+        }
+        else{
+            snd.play();
+
+            image.src='img/winClose.png';
+            image_tracker4='open4';
+            $("figcaption4").text("Close")
+
+
+        }
+    }
+
+
+
+
+    var image_tracker5 = 'open5';
+
+    function changeLivingTwo(on){
+        var snd = new Audio("sound/tick.mp3");
+
+        var image = document.getElementById('doorLock5');
+        //if the changeBoth overwrites
+        if (on ==1){
+            image.src='img/winOpen1.png';
+            image_tracker5='open5';
+            $("figcaption5").text("Open")
+        }
+        if (on ==2){
+            image.src='img/WindowHalf.png';
+            image_tracker5='half5';
+            $("figcaption5").text("Half")
+
+        }
+        if (on ==3){
+            image.src='img/winClose.png';
+            image_tracker5='close5';
+            $("figcaption5").text("Close")
+        }
+
+
+        if(image_tracker5=='open5'){
+            snd.play();
+
+            image.src='img/winOpen1.png';
+            image_tracker5='half5';
+            $("figcaption5").text("Open")
+
+
+
+        }else if(image_tracker5=='half5'){
+            snd.play();
+
+            image.src='img/WindowHalf.png';
+            image_tracker5='close5';
+            $("figcaption5").text("Half")
+
+
+
+        }
+        else{
+            snd.play();
+
+            image.src='img/winClose.png';
+            image_tracker5='open5';
+            $("figcaption5").text("Close")
+
+
+        }
+    }
+
+</script>
+
+
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Interface</title>
+</head>
+<body>
+
+<div class=" main_block" style="margin: 100px auto">
+
+
+    <div class="navBar" id= "table"style="text-align: center" >
+
+        <a href="main.html"><img src="img/home.png" id="icon" style="width: 50px; height:50px;display: inline-block"></a>
+
+        <a href="lights.html"><img src="img/light.png" id="icon1" style="width: 50px; height:50px;display: inline-block"></a>
+
+        <a href="heating.html"><img src="img/heat.png" id="icon3" style="width: 50px; height:50px;display: inline-block"></a>
+
+
+        <a href="doors.html"><img src="img/door.png" id="icon2" style="width: 50px; height:50px;display: inline-block"></a>
+
+        <a href="window.html"><img src="img/window1.png" id="icon4" style="width: 50px; height:50px;display: inline-block"></a>
+
+
+    </div>
+
+
+
+
+
+
+    <div style="text-align: center">
+
+        <br>
+
+        <h2> <u> SHADES </u> </h2>
+
+
+        <div id="flip">Kitchen </div>
+        <div id="panel">
+            <br><br>
+
+            <div>
+                <img src="img/winOpen1.png" id="doorLock" onclick="changeKitchen();"
+                     style="width: 90px; height:90px">
+                <br>
+                <figcaption1> Open </figcaption1>
+
+            </div>
+        </div>
+
+        <br>
+
+
+
+        <div id="flip2">Living Room</div>
+        <div id="panel2">
+            <br><br>
+
+            <div class="livingroom_position">
+                <img src="img/winOpen1.png" id="doorLock4" onclick="changeLivingOne();" style="width: 90px; height:90px">
+                <br>
+                <figcaption4> Open </figcaption4>
+            </div>
+            <div class="livingroom_position">
+                <img src="img/winOpen1.png" id="doorLock5" onclick="changeLivingTwo();" style="width: 90px; height:90px">
+                <br>
+                <figcaption5> Open</figcaption5>
+            </div>
+            <p style="clear:both">
+
+            .
+
+
+
+        </div>
+
+        <br>
+
+
+        <div id="flip3">Bed Room</div>
+        <div id="panel3">
+            <div>
+                <br><br>
+
+                <img src="img/winOpen1.png" id="doorLock2" onclick="changeBR();" style="width: 90px; height:90px">
+                <br>
+                <figcaption2> Open </figcaption2>
+            </div>
+        </div>
+
+
+        <br>
+
+        <div id="flip4">All Shades</div>
+        <div id="panel4">
+
+        <div >
+            <br><br>
+            <img src="img/winOpen1.png" id="doorLock3" onclick="changeAll();" style="width: 90px; height:90px">
+            <br>
+            <figcaption10> Turn All</figcaption10>
+            <br>
+            <figcaption3>Half Open </figcaption3>
+        </div>
+
+        </div>
+
+        </div>
+
+
+    </div>
+</body>
+</html>
+
